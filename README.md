@@ -4,13 +4,13 @@
 
 ####Operating Systems
 
-For all Raspberry Pis download and install Raspbian Jessie [DOWNLOAD](https://www.raspberrypi.org/downloads/raspbian/) [SETUP GUIDE](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+For all Raspberry Pis download and install Raspbian Jessie [DOWNLOAD](https://www.raspberrypi.org/downloads/raspbian/) and [SETUP GUIDE](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 
 ####Rarspberry Pi CAMERA:
 
 This part of the syste uses a raspberry pi 3 model B [LINK](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 
-1. Download and install openframeworks for raspberry pi armv6 [DOWNLOAD](http://openframeworks.cc/download/) [SETUP INSTRUCTIONS](http://openframeworks.cc/setup/raspberrypi/) 
+1. Download and install openframeworks for raspberry pi armv6 [DOWNLOAD](http://openframeworks.cc/download/) and [SETUP INSTRUCTIONS](http://openframeworks.cc/setup/raspberrypi/) 
 2. Download ofxLibwebsockets addon [DOWNLOAD](https://github.com/robotconscience/ofxLibwebsockets)
 3. Make sure you install the right version of requests for python, this project uses version 2.6.0 since it makes use of InsecureRequestWarning:
 	sudo easy_install --upgrade pip
@@ -20,14 +20,14 @@ This part of the syste uses a raspberry pi 3 model B [LINK](https://www.raspberr
 
 This part of the syste uses a raspberry pi 1 model B [LINK](https://www.raspberrypi.org/products/model-b/)
 
-1. Download and install openframeworks for raspberry pi armv6 [DOWNLOAD](http://openframeworks.cc/download/) [SETUP INSTRUCTIONS](http://openframeworks.cc/setup/raspberrypi/) 
+1. Download and install openframeworks for raspberry pi armv6 [DOWNLOAD](http://openframeworks.cc/download/) and [SETUP INSTRUCTIONS](http://openframeworks.cc/setup/raspberrypi/) 
 2. Download ofxLibwebsockets addon [DOWNLOAD](https://github.com/robotconscience/ofxLibwebsockets)
 
 ####Rarspberry Pi TEXT:
 
 This part of the syste uses a raspberry pi 1 model B [LINK](https://www.raspberrypi.org/products/model-b/)
 
-1. Download and install openframeworks for raspberry pi armv6 [DOWNLOAD](http://openframeworks.cc/download/) [SETUP INSTRUCTIONS](http://openframeworks.cc/setup/raspberrypi/) 
+1. Download and install openframeworks for raspberry pi armv6 [DOWNLOAD](http://openframeworks.cc/download/) and [SETUP INSTRUCTIONS](http://openframeworks.cc/setup/raspberrypi/) 
 2. Download ofxLibwebsockets addon [DOWNLOAD](https://github.com/robotconscience/ofxLibwebsockets)
 3. Download ofxCenteredTrueTypeFont addon [DOWNLOAD](https://github.com/armadillu/ofxCenteredTrueTypeFont)
 
