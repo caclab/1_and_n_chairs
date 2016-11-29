@@ -126,12 +126,13 @@ void ofApp::onMessage( ofxLibwebsockets::Event& args ){
 
     if(args.message == "$reset;"){
     	drawImage = false;
+    }else if(args.message == "$display;"){
+        drawImage = true;
     }else{
     	//cout<< ("python data/get_image.py " + args.message).c_str()<< endl;
     	string url = getImageURL(("node data/app.js " + allTogether).c_str());
     	//cout<< "URL: " + url<< endl;
     	loadImage = true;
-    	drawImage = true;
     }
 }
 

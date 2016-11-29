@@ -1,0 +1,13 @@
+<CONFIG>
+	<panTopMax>0</panTopMax>
+	<panBotMax>0</panBotMax>
+	<panRightMax>0</panRightMax>
+	<panLeftMax>0</panLeftMax>
+	<zoomMax>10.0</zoomMax>
+	<cycleTimeLimit>35000</cycleTimeLimit>
+	<port>9091</port>
+	<fontSize>20</fontSize>
+	<fullScreen>1</fullScreen>
+	<camWidth>1280</camWidth>
+	<camHeight>720</camHeight>
+</CONFIG>

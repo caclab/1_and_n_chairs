@@ -27,16 +27,21 @@ class ofApp : public ofBaseApp{
 		void panZoomCamera();//camera movements
 		bool startPanZoom, zooming, panX, panY;
 
+		int isFullScreen;
+
 		bool captureFrame;
 
 		ofVideoGrabber video;
 		int camWidth, camHeight;
 		float zoom, maxZoom;
+		float zMax;
 		float posX, posY, maxPosX, maxPosY;
+		int panRightMax, panLeftMax, panTopMax, panBotMax;
 		float panSpeed, zoomSpeed;
 
 		//WEBSOCKETS
         ofxLibwebsockets::Server server;
+        int port;
         bool bSetup; //socket setup
         string toSend; //data to send to machine via websockets
         void onConnect( ofxLibwebsockets::Event& args );
@@ -48,13 +53,17 @@ class ofApp : public ofBaseApp{
 
         //booleans for checking status of clients
         bool isImageConnected, isImageReady;
-        bool isTextConnected;
+        bool isTextConnected, isTextReady;
 
         //fonts
         ofTrueTypeFont font;
+        int fontSize;
 
         //Cycle timer
         uint64_t startTime;
         uint64_t timeLimit;
+        bool isCycleCounting;
+
+        ofXml XML; //config file
 
 };

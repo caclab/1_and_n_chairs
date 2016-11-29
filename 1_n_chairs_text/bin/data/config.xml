@@ -1,0 +1,7 @@
+<CONFIG>
+	<fontSize>30</fontSize>
+	<fullScreen>0</fullScreen>
+	<marginX>600</marginX>
+	<address>127.0.0.1</address>
+	<port>9091</port>
+</CONFIG>

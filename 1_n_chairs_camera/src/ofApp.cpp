@@ -5,18 +5,35 @@ void ofApp::setup(){
 
 	ofBackground(0);
 
+	//Config file
+    if( XML.load("config.xml") ){
+		cout<< "config.xml loaded!"<< endl;
+		timeLimit = XML.getValue<int>("cycleTimeLimit");
+		panLeftMax = XML.getValue<int>("panLeftMax");
+		panRightMax = XML.getValue<int>("panRightMax");
+		panTopMax = XML.getValue<int>("panTopMax");
+		panBotMax = XML.getValue<int>("panBotMax");
+		zMax = XML.getValue<float>("zoomMax");
+		port = XML.getValue<int>("port");
+		fontSize = XML.getValue<int>("fontSize");
+		camWidth = XML.getValue<int>("camWidth");
+		camHeight = XML.getValue<int>("camHeight");
+		isFullScreen = XML.getValue<int>("fullScreen");
+	}
+
+	//Set window shape
+    if(isFullScreen == 1){
+    	ofSetFullscreen(true);
+    }else{
+    	ofSetWindowShape(camWidth, camHeight);
+    }
+
 	//WEBSOCKETS CONFIG
 	ofxLibwebsockets::ServerOptions options = ofxLibwebsockets::defaultServerOptions();
-    options.port = 9091;
+    options.port = port;
 	options.bUseSSL = false; // you'll have to manually accept this self-signed cert if 'true'!
     server.setup( options );
     server.addListener(this);// this adds your app as a listener for the server
-
-    //CAMERA and Window
-	camWidth = 1280;
-	camHeight = 720;
-
-	ofSetWindowShape(camWidth, camHeight);
 
 	//we can now get back a list of devices.
     vector<ofVideoDevice> devices = video.listDevices();
@@ -48,10 +65,13 @@ void ofApp::setup(){
     isImageConnected = false;
     isTextConnected = false;
     isImageReady = false;
+    isTextReady = false;
 
     //font 
     ofTrueTypeFont::setGlobalDpi(72);
-    font.load("verdana.ttf", 24, true, true);
+    font.load("verdana.ttf", fontSize, true, true);
+
+    isCycleCounting = true;
 }
 
 //--------------------------------------------------------------
@@ -60,9 +80,9 @@ void ofApp::setupCycle(){
 	zooming = true;
 	panX = true;
 	panY = true;
-	maxZoom = ofRandom(1.0, 10.0);
-	maxPosX = ofRandom(-camWidth/2, camWidth/2);
-	maxPosY = ofRandom(-camHeight/2, camHeight/2);
+	maxZoom = ofRandom(1.0, zMax);
+	maxPosX = ofRandom(-camWidth/2 + panLeftMax, camWidth/2 - panRightMax);
+	maxPosY = ofRandom(-camHeight/2 + panTopMax, camHeight/2 - panBotMax);
 	server.send("$reset;");
 }
 
@@ -144,6 +164,14 @@ void ofApp::update(){
 		//RUN SYSTEM
 		video.update();
 
+		if(isImageReady && isTextReady){
+			server.send("$display;");
+			isCycleCounting = true;
+			isImageReady = false;
+			isTextReady = false;
+			startTime = ofGetElapsedTimeMillis();
+		}
+
 		if(startPanZoom){
 			panZoomCamera();
 		}
@@ -158,6 +186,15 @@ void ofApp::update(){
 			}
 	        cout<< "RESULT: " + result<< endl;
 	        server.send(result);
+		}
+
+		if(isCycleCounting){
+			uint64_t now = ofGetElapsedTimeMillis();
+	        if (now - startTime > timeLimit) {
+	        	isCycleCounting = false;
+	        	setupCycle();
+	            startTime = ofGetElapsedTimeMillis();
+	        }
 		}
 	}
 }
@@ -191,7 +228,7 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-	setupCycle();
+	// setupCycle();
 }
 
 //--------------------------------------------------------------
@@ -230,24 +267,16 @@ void ofApp::onIdle( ofxLibwebsockets::Event& args ){
 void ofApp::onMessage( ofxLibwebsockets::Event& args ){
     cout<<"got message: "<<args.message<<endl;
 
-    if(args.message == "$image;"){
-    	isImageConnected = true;
-    }
-
-    if(args.message == "$text;"){
-    	isTextConnected = true;
-    }
-
-    if(args.message == "$image;ready"){
-    	isImageReady = true;
-    }
-
-    if(args.message == "$text;ready"){
-    	
-    }
-
     if(args.message == "$reset;"){
     	setupCycle();
+    }else if(args.message == "$image;"){
+    	isImageConnected = true;
+    }else if(args.message == "$text;"){
+    	isTextConnected = true;
+    }else if(args.message == "$image;ready"){
+    	isImageReady = true;
+    }else if(args.message == "$text;ready"){
+    	isTextReady = true;
     }
 }
 
