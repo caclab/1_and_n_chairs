@@ -2,7 +2,7 @@
 
 ###Requirements
 
-###Operating Systems
+####Operating Systems
 
 For all Raspberry Pis download and install Raspbian Jessie [DOWNLOAD](https://www.raspberrypi.org/downloads/raspbian/) [SETUP GUIDE](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 
