@@ -53,14 +53,14 @@ Located at: /1_n_chairs_camera/bind/data/config.xml
 	<connectionTimeout>5000</connectionTimeout>
 	</CONFIG>
 
-panLefMax: 			Maximum left margin to which camera can pan
-panRightMax:		Maximum right margin to which camera can pan
-panTopMax: 			Maximum top margin to which camera can pan
-panBotMax: 			Maximum bottom margin to which camera can pan
-zoomMax:			Maximum zoom allowed
-cycleTimeLimit: 	Time between cycles of the system
-port:				Port to open with the websocket server
-fontSize: 			Font size for display messages
+- panLefMax: 			Maximum left margin to which camera can pan
+- panRightMax:		Maximum right margin to which camera can pan
+- panTopMax: 			Maximum top margin to which camera can pan
+- panBotMax: 			Maximum bottom margin to which camera can pan
+- zoomMax:			Maximum zoom allowed
+- cycleTimeLimit: 	Time between cycles of the system
+- port:				Port to open with the websocket server
+- fontSize: 			Font size for display messages
 
 ###Protocol Design
 
