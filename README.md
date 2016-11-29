@@ -1,5 +1,7 @@
 # 1_&_n_chairs
 
+1 & N chairs is an autonomous system which uses an on-line cognitive computation engine, custom software, a usb camera and 2 screens each connected to a miniature Linux PC. The process starts with the camera automatically tilting, panning and zooming the image into a unique part of the physical wooden chair (see figure 4). On each cycle the camera searches for a new unique point of view of the wooden object. Once it targets its new frame, it captures a picture, during this process the spectator is able to see, in real-time, what the camera sees and targets through the camera's display (see item 2 in figure 3). The captured image is then sent to the on-line cognitive computing system which after a few seconds calls-back with a caption phrasing what it sees; a human like description of the reality encountered in the photograph. At this point of the process the textual interpretation given by the cognitive machine is used in two different forms; it is rendered as text on the right screen of the installation (see item 7 in figure 3), while in parallel, the same text is used as the query for a web-based image search. The returned image is finally displayed on the left screen mounted on the wall (see item 6 in figure 3). The process loops, each cycle starting with a different and unique image of the original chair, hence rendering  each instance as a unique imagined reality based on the algorithms behind the cognitive computational model.
+
 ###Requirements
 
 ####Operating Systems
