@@ -13,6 +13,32 @@ RbPi camera is 192.168.1.100
 RbPi image is 192.168.1.110
 RbPi text is 192.168.1.120
 
+###Configuration
+
+All 3 application contain a config.xml file located at /appName/bin/data
+
+####Camera App
+
+Located at: /1_n_chairs_camera/bind/data/config.xml
+	
+	<CONFIG>
+	<panTopMax>0</panTopMax>
+	<panBotMax>0</panBotMax>
+	<panRightMax>0</panRightMax>
+	<panLeftMax>0</panLeftMax>
+	<zoomMax>10.0</zoomMax>
+	<connectionTimeout>5000</connectionTimeout>
+	</CONFIG>
+
+panLefMax: 			Maximum left margin to which camera can pan
+panRightMax:		Maximum right margin to which camera can pan
+panTopMax: 			Maximum top margin to which camera can pan
+panBotMax: 			Maximum bottom margin to which camera can pan
+zoomMax:			Maximum zoom allowed
+cycleTimeLimit: 	Time between cycles of the system
+port:				Port to open with the websocket server
+fontSize: 			Font size for display messages
+
 ###Protocol Design
 
 server: 1_&_n_chairs_camera	-> ID: $camera;
