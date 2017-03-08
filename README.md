@@ -114,3 +114,13 @@ the system only runs if both state booleans are true:
 	}else{
 		//WAIT FOR BOTH CLIENTS TO CONNECT
 	}
+
+####Auto Start APP at boot
+
+Run the following command on the terminal:
+
+	crontab -u pi -e
+	
+Add the path to the executable file, example:
+
+	@reboot /usr/bin/sudo -u pi -H /home/pi/REST-OF-PATH/APP-NAME
